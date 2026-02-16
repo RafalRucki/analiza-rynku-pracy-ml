@@ -9,3 +9,6 @@ data/
 *.parquet
 .ipynb_checkpoints/
 .DS_Store
+data/nfj_jobs_features.csv
+data/X_features.csv
+data/y_target.csv
