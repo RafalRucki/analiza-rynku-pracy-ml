@@ -2,28 +2,28 @@
 
 ## 📌 Project Goal
 
-**Celem projektu jest analiza oraz predykcja wynagrodzeń programistów Python w Polsce na podstawie ofert pracy z jawnymi widełkami płacowymi.**
+**The aim of the project is to analyse and predict the salaries of Python programmers in Poland based on job offers with disclosed salary ranges.**
 
-Projekt obejmuje pełny pipeline Data Science:
+The project covers the full Data Science pipeline:
 
-- Pozyskanie danych z REST API  
-- Czyszczenie i deduplikację danych  
-- Analizę eksploracyjną (EDA)  
+- Data acquisition from REST API  
+- Data cleaning and deduplication  
+- Exploratory data analysis (EDA)  
 - Feature engineering  
-- Budowę i ewaluację modelu regresyjnego  
+- Regression model building and evaluation  
 
 ---
 
 ## 📊 Data Source
 
-**Źródło danych:**
+**Data source:**
 - NoFluffJobs REST API  
-- Fraza wyszukiwania: `"python"`  
+- Search phrase: `‘python’`  
 - Region: Poland  
-- Waluta: PLN  
-- Okres wynagrodzenia: monthly  
+- Currency: PLN  
+- Salary period: monthly  
 
-**Zakres danych:**
+**Data scope:**
 - `title`
 - `city`
 - `level` (seniority)
@@ -32,45 +32,45 @@ Projekt obejmuje pełny pipeline Data Science:
 - `salary_avg`
 - `currency`
 
-Analiza obejmuje wyłącznie oferty zawierające jawne widełki płacowe.
+The analysis only includes offers with explicit salary ranges.
 
 ---
 
 ## 🧹 Data Processing Pipeline
 
-1. Scrapowanie danych z API  
-2. Usunięcie duplikatów ofert  
-3. Filtrowanie rekordów bez widełek wynagrodzenia  
-4. Obliczenie `salary_avg`  
-5. Kodowanie zmiennych kategorycznych (One-Hot Encoding)  
-6. Przygotowanie zbiorów `X` (features) i `y` (target)  
+1. Scraping data from the API  
+2. Removing duplicate offers  
+3. Filtering records without salary ranges  
+4. Calculating `salary_avg`  
+5. Encoding categorical variables (One-Hot Encoding)  
+6. Preparing sets `X` (features) and `y` (target)  
 
 ---
 
 ## 📈 Exploratory Data Analysis (EDA)
 
-**Kluczowe obserwacje:**
+**Key observations:**
 
-- Wynagrodzenia rosną wraz z poziomem doświadczenia  
-- Segment Senior charakteryzuje się największym rozrzutem widełek płacowych  
-- Oferty z jawnymi widełkami dotyczą głównie poziomów Mid i Senior  
-- Rynek Juniorów jest słabo reprezentowany w ofertach z widełkami  
-- Dominują oferty zdalne (Remote/Unknown)  
+- Salaries increase with experience  
+- The Senior segment is characterised by the widest salary range  
+- Offers with explicit salary ranges mainly concern Mid and Senior levels  
+- The Junior market is poorly represented in offers with salary ranges  
+- Remote offers (Remote/Unknown) dominate  
 
 Notebook:  
-`notebooks/03_eda_salary.ipynb`
+`notebooks/03_eda_sala
 
 ---
 
 ## 🤖 Machine Learning
 
-**Cel modelu:**  
-Predykcja średniego wynagrodzenia (`salary_avg`) na podstawie cech oferty.
+**Model objective:**  
+Predicting average salary (`salary_avg`) based on job offer characteristics.
 
-**Zastosowany model:**
+**Model used:**
 - Random Forest Regressor
 
-**Metody ewaluacji:**
+**Evaluation methods:**
 - Train/Test Split  
 - R² Score  
 - MAE (Mean Absolute Error)  
@@ -83,7 +83,7 @@ Notebook:
 
 ## 📁 Project Structure
 
-analiza-rynku-pracy-ml/
+labour-market-analysis-ml/
 │
 ├── data/
 │ ├── nfj_jobs_clean.csv
@@ -106,7 +106,7 @@ analiza-rynku-pracy-ml/
 1. Clone repository:
 
 git clone https://github.com/RafalRucki/analiza-rynku-pracy-ml.git
-cd analiza-rynku-pracy-ml
+cd labour-market-analysis-ml
 
 
 2. Create virtual environment:
@@ -126,20 +126,20 @@ jupyter notebook
 
 ## ⚠️ Limitations
 
-- Analiza obejmuje wyłącznie oferty z jawnymi widełkami płacowymi  
-- Dane reprezentują wycinek rynku w określonym momencie czasowym  
-- Brak informacji o rodzaju kontraktu (B2B / UoP), stacku technologicznym, benefitach  
-- Duża część ofert oznaczona jako Remote/Unknown  
+- The analysis only includes offers with explicit salary ranges
+- The data represents a snapshot of the market at a specific point in time
+- No information about the type of contract (B2B/UoP), technology stack, or benefits  
+- A large proportion of offers marked as Remote/Unknown  
 
 ---
 
 ## 🔮 Future Improvements
 
-- Uwzględnienie większej liczby stron (większy zbiór danych)  
-- Dodanie analizy stacków technologicznych  
-- Porównanie różnych modeli regresyjnych  
+- Inclusion of more websites (larger data set)  
+- Addition of technology stack analysis  
+- Comparison of different regression models  
 - Cross-validation  
-- Deployment modelu jako API  
+- Deployment of the model as an API  
 
 
 
